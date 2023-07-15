@@ -4,29 +4,29 @@ import requests
 import sqlite3
 app = Flask(__name__)
 
-@app.route("/hell")
+@app.route("/")
 def hell():
-    return render_template('index.html')
+    return render_template('./index.html')
 
 @app.route('/home')
 def home():
-    return render_template('index.html')
+    return render_template('./index.html')
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html')
+    return render_template('./contact.html')
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('./about.html')
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    return render_template('./login.html')
 
 @app.route('/user')
 def user():
-    return render_template('user_details.html')
+    return render_template('./user_details.html')
 
 @app.route('/history')
 def history():
@@ -53,7 +53,7 @@ def Login():
         c.execute("INSERT INTO users (username,password,email) VALUES (?,?,?)", (username,password,email))
         c.execute("SELECT username FROM users ")
         result = c.fetchall()
-    return render_template('user_index.html', word = str(result[len(result)-1]))
+    return render_template('./user_index.html', word = str(result[len(result)-1]))
 
 
 @app.route("/well/<name>")   
