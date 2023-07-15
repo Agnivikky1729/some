@@ -45,8 +45,8 @@ def history():
     data=''
     global check
     if(check):
-        data += "Words that you search appear here"
-        # check = False
+        data += "History cleared"
+        check = False
     conn = sqlite3.connect('./web.db')
     c = conn.cursor()
     for row in c.execute("SELECT * FROM words"):
