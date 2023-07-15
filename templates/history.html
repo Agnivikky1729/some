@@ -1,9 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color: #33475b">
 <head>
 	<title>history</title>
+	<style>
+		button{
+			background-color:green;
+			font-size: 25px;
+			margin-left : 85%;
+			color: white;
+		}
+	</style>
+	<script>
+		function fun() {
+		  var button = document.querySelector('button');
+		  button.style.backgroundColor = 'red';
+		}
+	</script>
 </head>
-<body>
-	<h1>Your words are : {{ word }}</h1>
+<body style="color: antiquewhite;">
+	<form action="/erase">
+		<button onclick="fun()">Clear History</button>
+	</form>
+	<h2>{{ word }}</h2>
 </body>
 </html>
