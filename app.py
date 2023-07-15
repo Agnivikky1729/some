@@ -28,9 +28,25 @@ def login():
 def user():
     return render_template('./user_details.html')
 
+check = False
+
+@app.route("/erase")
+def erase():
+    global check
+    check = True
+    conn = sqlite3.connect('./web.db')
+    c = conn.cursor()
+    c.execute("DELETE FROM words")
+    conn.commit()
+    return redirect(url_for('history'))
+
 @app.route('/history')
 def history():
-    data = ''
+    data=''
+    global check
+    if(check):
+        data += "Words that you search appear here"
+        # check = False
     conn = sqlite3.connect('./web.db')
     c = conn.cursor()
     for row in c.execute("SELECT * FROM words"):
@@ -158,6 +174,7 @@ def get_dictionary_response(word):
 
 
 if __name__ == "__main__":
+    check = False;
     app.run(port = '4000', debug = True)
 
 
