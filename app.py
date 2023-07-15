@@ -50,7 +50,7 @@ def history():
     conn = sqlite3.connect('./web.db')
     c = conn.cursor()
     for row in c.execute("SELECT * FROM words"):
-        data += str(row)
+        data = " , ".join([row[0] for row in c.execute("SELECT * FROM words")])
     return render_template('history.html', word = str(data))
 
 
