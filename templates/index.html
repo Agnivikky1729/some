@@ -1,64 +1,3 @@
-<!-- <!DOCTYPE html>
-<html style="background-image: url(https://img.freepik.com/free-vector/geometric-science-education-background-vector-gradient-blue-digital-remix_53876-125993.jpg); background-repeat: no-repeat; background-size: cover;">
-
-<head>
-    <style>
-        h1 {text-align:center;color:white;background-color: transparent;}
-        h2 {text-align:center;color:white}
-        h3 {color:white}
-        .main {text-align: center;}
-        label {color:white;}
-        body {min-height: 100vh;}
-        input[type="submit"] {background-color: green;color:white}
-        nav
-        {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav-links{
-            flex: 1;
-            text-align: right;
-        }
-        .nav-links ul li{
-            list-style: none;
-            display: inline-block;
-            position: static;
-        }
-        .nav-links ul li a{
-            color: #fff;
-            text-decoration: none;
-            font-size: 17px;
-        }
-        .nav-links ul li::after{
-            content: '';
-            width: 0%;
-            height: 2px;
-            background: #f44336;
-            display: block;
-            margin: auto;
-            transition: 0.5s;
-        }
-        .nav-links ul li:hover::after{
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <section class="header">
-        <nav>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="/home">HOME</a></li>
-                    <li><a href="/about">ABOUT</a></li>
-                    <li><a href="/contact">CONTACT</a></li>
-                </ul>
-            </div>
-        </nav>
-    </section>
-
-    <h1><img src="https://as2.ftcdn.net/v2/jpg/04/71/62/35/1000_F_471623571_joqRecwzOL5KdWxn0tQ8GV5ZxcmiAGv9.jpg" width="60" height="35">VVK Vocabulary Builder</h1>
-    <h2>Click on to see the meta-data of the word</h2> -->
 
     <!DOCTYPE html>
     <html>
@@ -94,26 +33,32 @@
                 text-align: center;
                 margin: 50px 0;
             }
-            input[type="text"] {
-                padding: 10px;
-                margin: 10px;
+        
+
+            input {
+                text-align: center;
+                padding: 1vh 20vw 1vh 20vw;
+                margin: 2vh;
                 border: none;
-                border-radius: 5px;
-                font-size: 18px;
+                border-radius: 1vw;
+                font-size: 2vw;
             }
-            input[type="submit"] {
+            button {
+                text-align: center;
                 background-color: #4CAF50;
                 color: white;
-                padding: 10px 20px;
+                padding: 1vh 1vw;
                 border: none;
-                border-radius: 5px;
-                font-size: 18px;
+                border-radius: 1vw;
+                font-size: 2vw;
                 cursor: pointer;
                 transition: all 0.3s ease;
             }
-            input[type="submit"]:hover {
-                background-color: #358d38;
+            button:hover{
+                background-color: red;
             }
+
+
             nav {
                 background-color: #3aa593;
                 overflow: hidden;
@@ -160,30 +105,14 @@
         </header>
     <section class="main">
 
-        <form action="/Synonyms" method="POST">
-            <label for="Word"></label><br>
-            <input type="text" id="word" name="word" placeholder="Enter the word">
-            <input type="submit" value="Synonyms"/>
+        <form action="/x" method="POST">
+            <label for="word"></label><br>
+            <input type="text" id="word" name="word" placeholder="Enter the word"><br>
+            <button type="submit" name="action" value="synonyms">Synonyms</button>
+            <button type="submit" name="action" value="antonyms">Antonyms</button>
+            <button type="submit" name="action" value="definition">Definition</button>
+            <button type="submit" name="action" value="sentence">Sentence</button>
         </form>
-
-        <form action="/Antonyms" method="POST">
-            <label for="Word"></label><br>
-            <input type="text" id="word" name="word" placeholder="Enter the word">
-            <input type="submit" value="Antonyms"/>
-        </form>
-
-        <form action="/Sentence" method="POST">
-            <label for="Word"></label><br>
-            <input type="text" id="word" name="word" placeholder="Enter the word">
-            <input type="submit" value="Sentence"/>
-        </form>
-
-        <form action="/Definition" method="POST">
-            <label for="Word"></label><br>
-            <input type="text" id="word" name="word" placeholder="Enter the word">
-            <input type="submit" value="Definition"/>
-        </form>
-
     </section>
 </body>
 </html>
