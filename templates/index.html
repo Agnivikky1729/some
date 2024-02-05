@@ -38,6 +38,151 @@
             input {
                 text-align: center;
                 padding: 1vh 20vw 1vh 20vw;
+                margin-bottom: 2vh;
+                border: none;
+                border-radius: 1vw;
+                font-size: 2vw;
+            }
+            #meta {
+                text-align: center;
+                background-color: #4CAF50;
+                color: white;
+                padding: 1vh 1vw;
+                border: none;
+                border-radius: 1vw;
+                font-size: 2vw;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            #meta:hover{
+                background-color: red;
+            }
+
+
+            nav {
+                background-color: #3aa593;
+                overflow: hidden;
+            }
+            .nav-links {
+                float: right;
+            }
+            .nav-links ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+            }
+            .nav-links ul li {
+                margin: 0 10px;
+            }
+            .nav-links ul li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            .nav-links ul li a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+            #recordButton
+            {
+                cursor: pointer;
+                background: transparent;
+                border-radius: 1vw;
+                margin-left: -4vw;
+                border-color: ghostwhite;
+            }
+            
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1><img src="https://t3.ftcdn.net/jpg/05/18/33/00/360_F_518330056_V4Mk7ueJ8fg5zhYURkAPkUb2nVawesu8.jpg" width="70" height="45" style="float: left;">VVK Vocabulary Builder</h1>
+            <nav>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="./home">HOME</a></li>
+                        <li><a href="./about">ABOUT</a></li>
+                        <li><a href="./contact">CONTACT</a></li>
+                        <li><a href="./history">HISTORY</a></li>
+                        <li><a href="./login">LOGIN</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div id="output"></div>
+        
+    <section class="main">
+
+        <form action="/x" method="POST">
+            <div class="input-container">
+                <label for="word"></label><br>
+                <input type="text" id="word" name="word" placeholder="Enter the word">
+                <button id="recordButton" type="submit" name="action" value="record" onclick="showAlert()">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALsAAAENCAMAAABgquSEAAABNVBMVEX///9ChfTqQzX7vAU0qFP6/P6uyf04hPvl8+guq1Bzxoj3+v6fwP35zcr+7L/3X1P8vwD+zS3uQTNjvHr++fgqqVO7Yz5Ch/n9wgD0Pi7tQzXw9f650PvzQjM9if799fT4v7tJjv1Zl/r//fX85+X97u37393tOyri7f32STrwbSj6swn1f3WEsPlonffY5P3N3Pt/rf3+8cz2oZr9453yhn3/+OWTuvzn8P3pNDj4saz5ysb0dWz0lY8qsFCP0KBjnPuxzfsofPrC1vv8z1H5cGX8yjbsV0zzgnn7wTD3VUj81WD92nX/yCf934j96bH90ET+9dv93pX82Xn80LnwMyHvZSj5qaT91Ez4tX3sUkPQZEvVUTdAnlBWlE1vjEyBgUeNe0acc0OnbkGxaUCUo3Xn1st2b+27AAAKhElEQVR4nO2de3vayhHGhYitJKBAVFohsEDCIKwWbDAhdkHkOHGIHXJ1Ukrr3s6t/f4foSsgNgbNaiUtkvOcef9yzEr8PMzOzo7IrCDw107m4DzbPqylXNUO29nzg8zOFt6HtzLlo92uKUmVSiW1EPlJkszu7lE5kzQcVQT8MCWpFTV1V6pakVKHBD9pQFDlTrsmqevct/xSrd25n/SE3JQg8CW+ZLbP7yH9UbsGmnzV+LX2UdKoa8rsnjGQz+nNs917NWlPuyYb+YK+e5A08K06pslMvqA/Txr5m15KFX/eu/CvdpOGniuT3QjnDPCV7D1w+nI2gKuvwJsniQfLkOhEZjZh+MxuWHRi+WRj5c5eaHQXfi/J7PKoFh7dhU9wic0cRkEn8IfJec1J0Li+rko7KfSOT9rIoFedZNB3Ijn7QmotGa/ZjeoxrirZJNBPz6Kb3TV8Ejll1uSA7i6v8aMfRIyP36Qexm/4XZMLOjF87OlwucvH7KmU1I07JzvnECAXUmtxb6KyvNBTqpSNNyU75eYyBD7mrXeHm8u4ThNvYrDHWI1hg9+LEz2Tlfihp6RYt6483d11+NMY2Q+45DI37GdxTtajCNtUD/ZY936dFFd2Nc7V6ZznVCWTNcaCwc5Lzuy7MbLvcmaPsTiJ7MiO7MiO7MiO7MiO7MiO7MiO7MiO7MiO7MiO7L9x9u+5lorsyI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7syI7swdjj7CWC7Mj+nbIfP4F0fB/YCzIoS3j9FNLr+8DeGOcATfrCm2LeW8W3+yA7355FqgT3iqpf6Iq3tJbwOZ8GBLMLe3zZVbihXv1CEb2lXQpvIPY8hb3Ds50etb+YdQ2y94XXRZD9Crwj595olF618qQEsY+EdxB7+i0caDj3pKO0ex3C7D3hPWj3DzA7516AbbiP4cAG0EVtIHwE7f70E3hHzj0YKf8VcQayTw3hGchefAbekWvvS+qJGSMdZB8Kn2D2j/AtufYcPYPDTKEFhRlxagnHEHq6+BVmP+Da6xVufVkfQ+ylZl24SoMB/h0c4Hf49dhNqZTGzHIOYldKVWG/CLK/hgO8wLG38RmlTe0ADJH6RUEQinCgeQLflF+UpPaU7oFTVXPIy59B9g+UQMOxl/dL+E0alzD7iLwOLk7UQMOxhzqlSS3s7u7SJAjPwEQy//45Bf7E5MJO7V1v2JC7l5oyef0JhJ7Of4azAmJ4LrNVPaOYvTpqQmZXJnUy4DkcaIpwVkCU5XJWA61zvTUG3V0fN1z2N6DD57/AEZ4kNbXo8GqNtsseirC796tkwD48WakRnsT4V5HZqWeTVHugy4jNQcEdQpmsRUqEJ2pHPhPmhHZ7Kwe6jKLI8yHHoMOn01SnEcoRtyAV+lk8RhOKMsTdrfmQK9jhi5+pTiN0Iu39VJPatL7R0mCX6TfmY/a/wk6TpzvNzstIZ0+9pJbDZB2cqaWluwvCpzwMT8klXWVCH1dG0H06t/RhsysTeTno+CllttKWJ6Jy6OXV76A4SwHNLuqOtRz1/B08WYvv6eyh4X3PuKOYXWz2Ct+GfYHZ80VaTuMqcxLCbVTzxKfVTx0OMmJpYtyMewI7jb/hSXIQ+PwsVfI9PYhmdmVs3YyjOU067Wd4QQh60p1q+p6KIYMZpOvuo5WRX8AITwz/zpddODoMdIbpoe/5BoUWuKTedRm606R9EoO5ylmWU2/n5GqN4TBHA9ynzl2msTJ0H65KEvbX9Bg/106nbTKd2Wu2O/4PaOoOxeyi3bszGK6OpekFslud7nVVH3ryeneP4QyVao/m7aWbhWmh52AZPu23f7pDTzvpWZXM7h7TKSRDeJvqzlRnbfhXquGpG9cVlY9OalLF4yxZtVKRaidHbGe/0D1G1Iy18Ve0KOmz+VtV5rRD8N0j2Zf+oxLsOfj5KWPjuUJPo3iMqF9vXEGbrekipRbvodO9bLdmEmNL5CMwa92TvSCH7Qw1mseI08HGFVdwMpn2T+Q9lCkfuCoHbfNniVSP0cXC5jXgg6eF27xnCJQ81MhRkgHX22ceF9G2fu4u5Ess6AVaHuOa/aLhcdX+exp7usg+X6Ogz+joJW3g4TKu4aleU6SVhXlpYFPnKdlj1z2v2/9INXwc8MaEjl7Svc1ODA8XDBY+z7i+hhZ9PSVqOt5mF9ysxsfyb/+yzS/pyHAtaSHFNsCL6XuQdD79R/Az46Ch7YNO9hxV+PJPtDyeoP9Z0XqUy6OoYOh+6EpOptxgn5KSuejkem3kFWCjow/omYAr22tZutUV+PSp+CcXnUz16SU4X8Kr0Zv6ouuOj9Wgx9zf0N3lwbHo9wguq09NHRceM6F5zFzeXnOL7hogZ/B1etnRfdHFac/3PvsfPOAJ+p1Pb8LT6auDHAO6lmOIcB6pwRq6G2gd3w+QVfW+Tx6wMJfO5KjP1jP5RYRZu5ft/xEyybhmMDqJEAbT3dYDZTH91w10YvrpNQfT11tTv6g+R9dGjGvi8zvbEG901/TTkRVtlW0MJvSU9+atWszz63glyuchdNca17MI9A1jrLEY/fbpEpOe3JRr7gTHzZtq47D0dePSZjM6icnDIHd+9iHPgO7eVx/35OD0daNlNxnCiytlEiwB3F9UhjeC46ZKup4bGYHCfUGeOczk5A16AW0zDzYM6O7NFX3isBu/PujnbJa4uBRziFnRu6JXXIfw7cl4xIDfMFxwhZ1cnLYCkxP9Lc+KPsfXdf26NbPgTKch98aiFgh8+dWqEPq7z853Q4o2nYrj/mxoNapEBVfuDw3LmF1eKFMtgKss0VthY7Dht4H04tc1bdoUL8ZOq++q5YxzYnOqBecmn6V9GTrnK4SBn7+popM/YSk9oJusoPcjpKuFIfzNoa1LsSNm2vKYcfHbAnov6iah7kzDfeIRpSuD6Juz6qX/Npi/NH3IoxJU7THl2HzRc7z288OQ4SasFO2S32bearHsKTmppE9mPCuHjRnLXp6LFMUJlK4zaNiCv77FU/pkxL/uVu9N/ItXUaU0x5zrVgsV5JZvqTaaSpo94l4vXKoxyPlXa8NL1xx5SxVyV9aotC3HUbTrwVbK4yv0relW6DVtC3N0k94JtmtjkKLb/W05+pqGlxObH727V+/zDukUyaOxzSfel3Q7N+JWVGZSwZq1Js3Ia63StJ1ZiNpUVNWHo7EeZht6A643J30jJj9fV9Uy+rkmY0F0A1wrOQN5y1GRqsYSP5jvK5pWGs/kRvzOsqZqVe6NFeYqBuGeis7AqiYO/k0NuedcN+cVDfAvKM0LH9dOb7jFlT+s6sas/49/XrvVGaKVHg7zf9uTnDMaRHxUsk09fPzgX//+z48//fzLr3+41a+//PzTj//93z0096oePn7x6NGjFy9+vybyq8cPk4bz0cPHjx4sdJf9wYNH3xH7upB9m0L2ZITsyQjZkxGyJyNkT0bInoyQPRkhezJC9mSE7MkI2ZMRsicjZE9GyJ6MkD0ZIXsyQvZk9H2zu88ovfQdPKP84XeQfuDN/n/P2qLNeSRKlwAAAABJRU5ErkJggg==" width="20vw" height="28vh">
+                </button>
+            </div>
+            <button id="meta" type="submit" name="action" value="synonyms">Synonyms</button>
+            <button id="meta" type="submit" name="action" value="antonyms">Antonyms</button>
+            <button id="meta" type="submit" name="action" value="definition">Definition</button>
+            <button id="meta" type="submit" name="action" value="sentence">Sentence</button>
+        </form>
+    </section>
+    <script>
+	function showAlert() {
+        alert('Click "OK" and Just say\nSynonyms of "your word" /\nAntonyms of"your word" /\nDefinition of"your word" /\nSentence of "your word"');
+    }
+    </script>
+</body>
+
+</html>
+
+
+
+
+<!-- 
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title style="color:red;">VVK Vocabulary Builder</title>
+        <style>
+            body {
+                background-image: url(https://img.freepik.com/free-vector/geometric-science-education-background-vector-gradient-blue-digital-remix_53876-125993.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+            header {
+                background-color:rgb(182, 238, 16);
+                padding: 10px;
+            }
+            h1 {
+                text-align: center;
+                color: black;
+                margin: 20px 0;
+            }
+            h2 {
+                text-align: center;
+                color: white;
+                margin: 20px 0;
+            }
+            label {
+                color: white;
+            }
+            .main {
+                text-align: center;
+                margin: 50px 0;
+            }
+        
+
+            input {
+                text-align: center;
+                padding: 1vh 20vw 1vh 20vw;
                 margin: 2vh;
                 border: none;
                 border-radius: 1vw;
@@ -116,3 +261,4 @@
     </section>
 </body>
 </html>
+ -->
