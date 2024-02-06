@@ -13,4 +13,5 @@ urllib3==2.0.3
 Werkzeug==2.2.3
 zipp==3.15.0
 gunicorn==19.7.1
+PyAudio==0.2.14
 SpeechRecognition==3.8.1
